@@ -1,0 +1,65 @@
+<?php
+include ("connect.php");
+session_start();
+if (isset($_SESSION['user_login'])) {
+$user = $_SESSION["user_login"];
+}
+else {
+$user = "";
+}
+?>
+<!doctype html>
+<html> 
+	<head>
+		<title > FriendZonia </title>
+		<link rel="stylesheet" type="text/css"href="style.css">
+	</head>
+	<body>
+       <div class="headerMenu">
+       	<div id="wrapper">
+       		<div class="logo">
+       			<h2> FriendZonia </h2>
+       		</div>
+
+       		<div id="menu">
+       			<a href="#" />Home</a>
+       			<a href="#" />About</a>
+       			<a href="#" />Sign Up</a>
+       			<a href="#" />Login</a>
+       		</div>
+
+       	</div>
+       </div>
+
+       
+       <div style="width: 800px ; margin: 0px auto 0px auto;">
+       <table>
+       	    <tr>
+
+       	        <td width="70%" valign="top">
+       	        <h1>Join FriendZonia Today!</h1>
+       	        </td>
+
+       	        <td width="40%" valign="top">
+       	        <h2>Sign Up Below!</h2>
+       	        <form action="#" method="POST">
+       	        	<input type="text" name="fname" size="30" placeholder="First Name" /><br /><br>
+       	        	<input type="text" name="lname" size="30" placeholder="Last Name" /><br /><br>
+       	        	<input type="text" name="email" size="30" placeholder="Email Address" /><br /><br>
+       	        	<input type="text" name="email2" size="30" placeholder="Re-type Email Address" /><br /><br>
+       	        	<input type="text" name="password" size="30" placeholder="Password" /><br /><br>
+       	        	<input type="text" name="password2" size="30" placeholder="Re-type Password" /><br /><br>
+       	        	<input type="date" name="birthdate" size="30" placeholder="Birthdate" /><br /><br>
+       	        	<input type="radio" id="g1" name="gender" value="male">
+       	        	<label for="g1">Male</label><br /><br>
+       	        	<input type="radio" id="g2" name="gender" value="female">
+       	        	<label for="g2">Female</label><br /><br>
+       	        	<input type="submit" name="submit" value="Sign Up">
+       	        </form>
+       	        </td>
+       	    </tr>
+       </table>
+       </div>
+       </body>
+	</body>
+</html>

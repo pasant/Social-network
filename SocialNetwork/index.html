@@ -1,0 +1,139 @@
+<!doctype html>
+<html> 
+
+	<head>
+		<title > FriendZonia </title>
+		<link rel="stylesheet" type="text/css"href="style.css">
+		<script type="text/javascript">
+	function validateform()
+	{
+ 		var fname=document.getElementById("fname").value;
+ 		var lname=document.getElementById("lname").value;
+ 		var pass1=document.getElementById("password").value;
+ 		var pass2=document.getElementById("password2").value;
+		var email1=document.getElementById("email").value;
+		var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+ 		var email2=document.getElementById("email2").value;
+        //var male=document.getElementById("g1").value;
+        //var female=document.getElementById("g2").value;
+       var date=document.getElementById("birthdate").value;
+	   
+    
+
+	if(fname==null || lname==null || pass1==null || pass2==null || email1==null || email2==null ||date ==null ||
+	fname=="" || lname=="" || pass1=="" || pass2=="" || email1=="" || email2=="" || date =="")
+			{
+  				alert('REGISTRATION: you sould fill the fields of  first name ,last name ,passwoard ,Email ,gender and birthdate ');
+  				return false;
+			}
+		else if (!filter.test(email1)) {
+              alert('Please provide a valid email address');
+              email1.focus;
+              return false;
+            }
+		else if(email1 != email2)
+			{
+ 				alert('REGISTRATION: Please check email address again.');
+ 				return false;
+			}
+		else if(pass1 != pass2)
+			{
+ 				alert('REGISTRATION: Please check password again.');
+ 				return false;
+			}
+		else if (!male.checked && !female.checked) 
+		    {
+  				alert('REGISTRATION: Please check gender field again.');
+ 				return false;
+			}
+		
+			return true;
+	}	
+
+	function validatelogin()
+	{
+  		var email=document.getElementById("loginEmail").value;
+		var pass=document.getElementById("loginPass").value;
+		if(email==null || pass==null || email=="" || pass=="")
+		{
+  			alert('LOGIN: Please fill empty slots.');
+  			return false;
+		}
+		return true;
+	}
+</script>
+	</head>
+
+	<body>
+       <div class="headerMenu">
+       	<div id="wrapper">
+       		<div class="logo">
+       			<h2> FriendZonia </h2>
+       		</div>
+
+       		<!--<div id="menu">
+       			<a href="#" />Home</a>
+       			<a href="#" />About</a>
+       			<a href="#" />Sign Up</a>
+       			<a href="#" />Login</a>
+       		</div> -->
+
+       	</div>
+       </div>
+       <div style="width: 800px ; margin: 0px auto 0px auto;">
+       <table>
+       	    <tr>
+
+       	        <td width="60%" valign="top">
+       	        <h2>Already a Member?  Login!</h2> 
+       	        <form action="checkLogin.php" method="POST" onsubmit="return validatelogin()">
+       	        	<input type="text" name="loginEmail" id="loginEmail" size="30" placeholder="Email Address" /><br /><br>
+       	        	<input type="password" name="loginPass" id="loginPass" size="30" placeholder="Password" /><br /><br>
+					<input type="submit" name="log" value="Login">
+       	        </form>
+       	        </td>
+
+       	        <td width="40%" valign="top">
+       	        <h2>Sign Up Below!</h2>
+       	        <form action="checkSign.php" method="POST" onsubmit="return validateform()">
+       	        	<input type="text" name="fname" id="fname" size="30" placeholder="First Name" /><br /><br>
+                  <input type="text" name="lname" id="lname" size="30" placeholder="Last Name" /><br /><br>
+                  <input type="email" name="email" id="email" size="30" placeholder="Email Address" /><br /><br>
+                  <input type="email" name="email2" id="email2" size="30" placeholder="Re-type Email Address" /><br /><br>
+                  <input type="password" name="password" id="password" size="30" placeholder="Password" /><br /><br>
+                  <input type="password" name="password2" id="password2" size="30" placeholder="Re-type Password" /><br /><br>
+
+
+                  
+                   <select  type="text" name="gender" id="gender">
+                     <option value="">gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">female</option>
+                     </select>
+                  <input type="date" name="birthdate" id="birthdate" size="30" placeholder="yyyy-mm-dd" /><br /><br>
+                  <input type="text" name="phone" id="phone" size="30" placeholder="Phone" /><br /><br>
+                  <input type="text" name="town" id="town" size="30" placeholder="Hometown" /><br /><br>
+
+
+                   <select  type="text" name="status" id="status">
+                     <option value="">marital status</option>
+                     <option value="Married">Married</option>
+                      <option value="Engaged">Engaged</option>
+                      <option value="Single">Single</option>
+                     </select>
+
+                  
+
+
+                  <input type="text" name="about" id="about" size="300" placeholder="About you !" /><br /><br>
+                  <input type="submit" name="submit" value="Sign Up">
+
+       	        </form>
+       	        </td>
+
+       	    </tr>
+       </table>
+       </div>
+       </body>
+	</body>
+</html>
